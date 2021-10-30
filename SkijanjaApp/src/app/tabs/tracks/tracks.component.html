@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col-6">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Length (km)</th>
+                <th scope="col">Rating</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let i of tracks.results" style="color:{{i.color}};">
+                <td>{{i.name}}</td>
+                <td>{{i.length_km}}</td>
+                <td>{{i.rating}}</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+    <div class="col-6">
+        <label for="in1">Sort by:</label>
+        <br>
+        <select name="sel" id="sel" [(ngModel)]="params.sort" (change)="getTracks()">
+            <option value="" disabled selected>--</option>
+            <option value="rating">Rating</option>
+            <option value="length_km">Length (km)</option>
+        </select>
+    </div>
+</div>
